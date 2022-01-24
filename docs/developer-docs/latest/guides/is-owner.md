@@ -77,13 +77,12 @@ const { createCoreController } = require('@strapi/strapi').factories;
 module.exports = createCoreController('api::article.article', {
   async create(ctx) {
     var { id } = ctx.state.user; //ctx.state.user contains the current authenticated user
-    const response = await super
-      .create(ctx)
-      .then(article =>
+    const response = await super.create(ctx).then(
+      article =>
         strapi.entityService.update('api::article.article', article.data.id, {
           data: { author: id },
-        })
-      );
+        }) && article
+    );
     return response;
   },
   async update(ctx) {
