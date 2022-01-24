@@ -44,13 +44,14 @@ const { createCoreController } = require('@strapi/strapi').factories;
 module.exports = createCoreController('api::article.article', {
   async create(ctx) {
     var { id } = ctx.state.user; //ctx.state.user contains the current authenticated user
-    const response = await super.create(ctx);
-    const updatedResponse = await strapi.entityService.update(
-      'api::article.article',
-      response.data.id,
-      { data: { author: id } }
-    );
-    return updatedResponse;
+    const response = await super
+      .create(ctx)
+      .then(article =>
+        strapi.entityService.update('api::article.article', article.data.id, {
+          data: { author: id },
+        })
+      );
+    return response;
   },
 });
 ```
@@ -75,47 +76,47 @@ We will use the same file and concepts the previous step.
 const { createCoreController } = require('@strapi/strapi').factories;
 
 module.exports = createCoreController('api::article.article', {
-  async create(ctx) {
-    var { id } = ctx.state.user; //ctx.state.user contains the current authenticated user
-    const response = await super.create(ctx);
-    const updatedResponse = await strapi.entityService.update(
-      'api::article.article',
-      response.data.id,
-      { data: { author: id } }
-    );
-    return updatedResponse;
-  },
-  async update(ctx) {
-    var { id } = ctx.state.user;
-    var [item] = await strapi.entityService.findMany('api::article.article', {
-      filters: {
-        id: ctx.request.params.id,
-        author: id,
-      },
-    });
-    if (item) {
-      const response = await super.update(ctx);
-      return response;
-    } else {
-      return ctx.unauthorized();
-    }
-  },
-  async delete(ctx) {
-    var { id } = ctx.state.user;
-    var [item] = await strapi.entityService.findMany('api::article.article', {
-      filters: {
-        id: ctx.request.params.id,
-        author: id,
-      },
-    });
-    if (item) {
-      const response = await super.delete(ctx);
-      return response;
-    } else {
-      return ctx.unauthorized();
-    }
-  },
-});
+    async create(ctx) {
+        var { id } = ctx.state.user; //ctx.state.user contains the current authenticated user 
+        const response = await super.create(ctx)
+            .then(article => strapi.entityService
+                .update('api::article.article', article.data.id, { data: { author: id } }))
+        return response;
+    },
+    async update(ctx) {
+        var { id } = ctx.state.user
+        var [article] = await strapi.entityService
+            .findMany('api::article.article', {
+                filters: {
+                    id: ctx.request.params.id,
+                    author: id
+                }
+            })
+        if (article) {
+            const response = await super.update(ctx);
+            return response;
+        } else {
+            return ctx.unauthorized();
+        }
+    },
+    async delete(ctx) {
+        var { id } = ctx.state.user
+        var [article] = await strapi.entityService
+            .findMany('api::article.article', {
+                filters: {
+                    id: ctx.request.params.id,
+                    author: id
+                }
+            })
+        if (article) {
+            const response = await super.delete(ctx);
+            return response;
+        } else {
+            return ctx.unauthorized();
+        }
+    },
+}
+);
 ```
 
 > Remember to replace **api::article.article** with the UID of the content-type that you are looking to customize
