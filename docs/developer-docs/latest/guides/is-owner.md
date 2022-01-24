@@ -12,7 +12,7 @@ You will have to modify the controllers of each Content-Type that you would like
 
 ## Example
 
-For this example, we will create an **article** [Content-Type](https://docs.strapi.io/developer-docs/latest/development/backend-customization/models.html).
+For this example, we will create an **article** [Content-Type](/developer-docs/latest/development/backend-customization/models.html).
 
 Add a `text` field named `title` and a `relation` field to this model.
 
@@ -20,13 +20,13 @@ The `relation` field is a **many-to-one** relation with User (from:users-permiss
 A User can have many Articles, but an Article can have only one User.<br>
 Name the field `author` for the Article Content-Type and `articles` on the User side.
 
-Now we are ready to start the customization of our [controllers](https://docs.strapi.io/developer-docs/latest/development/backend-customization/controllers.html).
+Now we are ready to start the customization of our [controllers](/developer-docs/latest/development/backend-customization/controllers.html).
 
 ## Apply the author by default
 
 When creating a new Article via `POST /api/articles` we must set the authenticated User as the article's author.
 
-We will [customize the `create` controller](https://docs.strapi.io/developer-docs/latest/development/backend-customization/controllers.html#extending-core-controllers) function of the Article API to do so.
+We will [customize the `create` controller](/developer-docs/latest/development/backend-customization/controllers.html#extending-core-controllers) function of the Article API to do so.
 
 > You must enable the permissions to **create, update** and **delete** Articles from Settings -> Users & Permissions Plugin -> Roles -> Authenticated
 
