@@ -10,13 +10,13 @@ The draft and publish feature allows you to save your content as a draft, to pub
 
 ## Activating or deactivating the draft and publish feature
 
-By default, the draft and publish feature is enabled for all newly created collection and single types. It is however possible to disable the feature at the content-type level (i.e. it can be enabled for one content type, but disabled for another).
+The draft and publish feature is enabled for all newly created collections and single types by default. However, it is possible to disable the feature at the content-type level (i.e., it can be enabled for one content type but disabled for another).
 
 ::: warning
-If the feature is deactivated while contents are saved as drafts, they will automatically be deleted. Make sure all contents are published before deactivating the feature.
+If the feature is deactivated while contents are saved as drafts, they will automatically be deleted. Therefore, make sure all contents are published before deactivating the feature.
 :::
 
-To deactivate the draft and publish feature for a content type:
+To deactivate the draft and publish feature for a content-type:
 
 1. Go to the Plugins > Content-Type Builder.
 2. Select the collection or single type for which you want the draft and publish feature to be deactivated.
@@ -41,17 +41,17 @@ By default, each newly created content is a draft, which is indicated on the rig
 
 ![Editing draft version](../assets/concepts/draft-publish/editing_draft_version.png)
 
-Drafts can be modified and saved at will, until they are ready to be published.
+Drafts can be modified and saved at will until they are ready to be published.
 
 ### Publishing a draft
 
 To publish a draft, click on the **Publish** button in the top right corner of the content editor.
 
 ::: warning CAUTION
-Before publishing a draft, make sure it doesn't have relations with other non-published content, otherwise some of the content may not be available through the API.
+Before publishing a draft, make sure it doesn't have relations with non-published content; otherwise, the data may not be available through the API.
 :::
 
-When a content is not a draft anymore, but has been published, it is indicated on the right of the interface, below the Information box.
+When content is not a draft anymore and has been published, it is indicated on the right of the interface, below the Information box.
 
 ![Editing published version](../assets/concepts/draft-publish/editing_published_version.png)
 

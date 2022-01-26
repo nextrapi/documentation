@@ -6,7 +6,7 @@ canonicalUrl: https://docs.strapi.io/developer-docs/latest/developer-resources/c
 
 # Command Line Interface (CLI)
 
-Strapi comes with a full featured Command Line Interface (CLI) which lets you scaffold and manage your project in seconds.
+Strapi comes with a full-featured Command Line Interface (CLI), which lets you scaffold and manage your project in seconds.
 
 ## strapi new
 
@@ -67,7 +67,7 @@ You should never use this command to run a Strapi application in production.
 
 Start a Strapi application with autoReload disabled.
 
-This command is there to run a Strapi application without restarts and file writes (aimed at production usage).
+This command runs a Strapi application without restarts and file writes (aimed at production usage).
 Certain features are disabled in the `strapi start` mode because they require application restarts.
 
 Allowed environment variables:
@@ -128,8 +128,8 @@ Options:
 All these examples are equivalent.
 
 :::caution
-When configuring your application you often enter credentials for third party services (e.g authentication providers). Be aware that those credentials will also be dumped into the output of this command.
-In case of doubt, you should avoid committing the dump file into a versioning system. Here are some methods you can explore:
+When configuring your application, you often enter credentials for third-party services (e.g., authentication providers). Be aware that those credentials will also be dumped into the output of this command.
+You should avoid committing the dump file into a versioning system in case of doubt. Here are some methods you can explore:
 
 - Copy the file directly to the environment you want and run the restore command there.
 - Put the file in a secure location and download it at deploy time with the right credentials.
@@ -201,7 +201,7 @@ strapi generate
 
 ## strapi templates:generate
 
-Create a template from the current strapi project
+Create a template from the current Strapi project
 
 ```bash
 strapi templates:generate <path>
@@ -278,7 +278,7 @@ strapi install <name>
   Example: `strapi install graphql` will install the plugin `strapi-plugin-graphql`
 
 :::caution
-Some plugins have admin panel integrations, your admin panel might have to be rebuilt. This can take some time.
+Some plugins have admin panel integrations; your admin panel might have to be rebuilt. This can take some time.
 :::
 
 ## strapi uninstall
@@ -302,12 +302,12 @@ options [--delete-files]
   Example: `strapi uninstall graphql --delete-files` will remove the plugin `strapi-plugin-graphql` and all the files in `./extensions/graphql`
 
 :::caution
-Some plugins have admin panel integrations, your admin panel might have to be rebuilt. This can take some time.
+Some plugins have admin panel integrations; your admin panel might have to be rebuilt. This can take some time.
 :::
 
 ## strapi console
 
-Start the server and eval commands in your application in real time.
+Start the server and eval commands in your application in real-time.
 
 ```bash
 strapi console
